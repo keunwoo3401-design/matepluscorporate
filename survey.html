@@ -219,8 +219,13 @@
   </p>
 
   <div class="form-card">
-    <!-- action은 추후 e-mail 또는 서버 연동 시 수정 -->
-    <form>
+    <!-- Google Apps Script 웹 앱 URL로 전송 -->
+    <form
+      id="inquiryForm"
+      method="POST"
+      action="https://script.google.com/macros/s/여기에_웹앱_URL/exec"
+      accept-charset="utf-8"
+    >
       <!-- Q1 회사명 / 담당자명 -->
       <div class="q-block">
         <div class="q-title">1. 회사명 / 담당자명</div>
