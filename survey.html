@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>맞춤 임대 문의 설문 – MatePlusRealty Corporate Advisory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --mp-navy-1: #1c2c52;
+      --mp-navy-2: #263863;
+      --mp-navy-3: #314474;
+      --mp-navy-4: #3c5185;
+      --mp-yellow: #f6d349;
+      --mp-bg: #f3f4f7;
+      --mp-radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", system-ui, sans-serif;
+      background: var(--mp-bg);
+      color: #111827;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: var(--mp-navy-1);
+      color: white;
+      padding: 14px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-wrap { display:flex; align-items:center; gap:10px; }
+    .logo-mark {
+      width:34px; height:34px;
+      border-radius:12px;
+      background:var(--mp-navy-3);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:18px; color:#fff;
+    }
+    .logo-text-main { font-size:15px; font-weight:700; }
+    .logo-text-sub { font-size:11px; opacity:0.85; }
+
+    nav { display:flex; gap:14px; font-size:13px; font-weight:500; }
+    nav a {
+      padding:4px 8px;
+      border-radius:999px;
+      color:white;
+    }
+    nav a:hover { background:rgba(255,255,255,0.16); }
+
+    main {
+      max-width: 900px;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--mp-navy-1);
+    }
+
+    .page-sub {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .form-card {
+      background: var(--mp-navy-2);
+      border-radius: var(--mp-radius);
+      padding: 22px 22px 20px;
+      color: #e5e7eb;
+      box-shadow:0 8px 18px rgba(15,23,42,0.25);
+    }
+
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      font-size:13px;
+    }
+
+    .q-block {
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(15,23,42,0.35);
+    }
+
+    .q-title {
+      font-weight:600;
+      margin-bottom:4px;
+      color:#f9fafb;
+    }
+
+    .q-desc {
+      font-size:11px;
+      opacity:0.9;
+      margin-bottom:6px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width:100%;
+      padding:7px 10px;
+      border-radius:8px;
+      border:1px solid #9ca3af;
+      font-size:13px;
+      font-family:inherit;
+    }
+
+    textarea {
+      min-height:80px;
+      resize:vertical;
+    }
+
+    .options {
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 14px;
+      margin-top:4px;
+    }
+
+    .options label {
+      font-size:12px;
+      display:flex;
+      align-items:center;
+      gap:4px;
+    }
+
+    .submit-row {
+      margin-top:14px;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .btn-submit {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding:8px 18px;
+      border-radius:999px;
+      border:1px solid var(--mp-yellow);
+      background:var(--mp-yellow);
+      color:#111827;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    footer {
+      padding: 14px 16px 18px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top:1px solid #e5e7eb;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      main { margin-top:18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-mark">M</div>
+      <div>
+        <div class="logo-text-main">MatePlusRealty Corporate Advisory</div>
+        <div class="logo-text-sub">대형 오피스 임대차 · 기업 전담 부동산 컨설팅</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">메인</a>
+      <a href="about.html">회사소개</a>
+      <a href="rent.html">임대현황</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">맞춤 임대 문의 설문</h1>
+  <p class="page-sub">
+    아래 항목을 작성해 주시면 MatePlusRealty Corporate Advisory에서 귀사의 이전·확장 계획에 맞는
+    맞춤형 임대 제안을 드립니다. (전용면적 기준으로 작성해 주세요.)
+  </p>
+
+  <div class="form-card">
+    <!-- action은 추후 e-mail 또는 서버 연동 시 수정 -->
+    <form>
+      <!-- Q1 회사명 / 담당자명 -->
+      <div class="q-block">
+        <div class="q-title">1. 회사명 / 담당자명</div>
+        <div class="q-desc">예) ㈜○○ / 홍길동 팀장</div>
+        <input type="text" name="company_contact" />
+      </div>
+
+      <!-- Q2 연락처 / 이메일 -->
+      <div class="q-block">
+        <div class="q-title">2. 연락처 / 이메일</div>
+        <div class="q-desc">임대 제안 회신을 위한 정보입니다.</div>
+        <input type="text" name="contact_info" placeholder="연락처 또는 이메일" />
+      </div>
+
+      <!-- Q3 현재 사용 중인 사무실 주소 -->
+      <div class="q-block">
+        <div class="q-title">3. 현재 사용 중인 사무실 주소</div>
+        <input type="text" name="current_address" />
+      </div>
+
+      <!-- Q4 이전/확장 시기 -->
+      <div class="q-block">
+        <div class="q-title">4. 이전 또는 확장 계획 시기</div>
+        <div class="options">
+          <label><input type="radio" name="timing" value="ASAP">ASAP (즉시)</label>
+          <label><input type="radio" name="timing" value="1m">1개월 이내</label>
+          <label><input type="radio" name="timing" value="1-3m">1~3개월</label>
+          <label><input type="radio" name="timing" value="3-6m">3~6개월</label>
+          <label><input type="radio" name="timing" value="6m+">6개월 이후</label>
+          <label><input type="radio" name="timing" value="unknown">아직 확정 아님</label>
+        </div>
+      </div>
+
+      <!-- Q5 희망 권역 -->
+      <div class="q-block">
+        <div class="q-title">5. 희망 권역 (복수 선택 가능)</div>
+        <div class="options">
+          <label><input type="checkbox" name="zone" value="CBD">CBD (시청·광화문·종로·을지로)</label>
+          <label><input type="checkbox" name="zone" value="GBD">GBD (강남·역삼·삼성·선릉)</label>
+          <label><input type="checkbox" name="zone" value="YBD">YBD (여의도)</label>
+          <label><input type="checkbox" name="zone" value="BBD">BBD (판교·마포·성수 등)</label>
+          <label><input type="checkbox" name="zone" value="ETC">기타 권역</label>
+        </div>
+      </div>
+
+      <!-- ⭐ Q6 희망 전용면적 (전용평 기준 8구간) -->
+      <div class="q-block">
+        <div class="q-title">6. 희망 전용면적(전용평 기준)</div>
+        <div class="q-desc">전용면적 기준으로 선택해 주세요. (임대면적은 공용률을 반영하여 별도로 계산해 제안드립니다.)</div>
+        <div class="options">
+          <label><input type="radio" name="area" value="lt100">100평 미만</label>
+          <label><input type="radio" name="area" value="100-200">100 ~ 200평</label>
+          <label><input type="radio" name="area" value="200-300">200 ~ 300평</label>
+          <label><input type="radio" name="area" value="300-400">300 ~ 400평</label>
+          <label><input type="radio" name="area" value="400-600">400 ~ 600평</label>
+          <label><input type="radio" name="area" value="600-800">600 ~ 800평</label>
+          <label><input type="radio" name="area" value="800-1000">800 ~ 1,000평</label>
+          <label><input type="radio" name="area" value="1000+">1,000평 이상</label>
+        </div>
+        <div style="margin-top:6px;">
+          <input type="text" name="area_etc" placeholder="기타 (직접 입력)" />
+        </div>
+      </div>
+
+      <!-- Q7 월예산 -->
+      <div class="q-block">
+        <div class="q-title">7. 월예산(임대료 + 관리비)</div>
+        <div class="options">
+          <label><input type="radio" name="budget" value="10-20">1,000만~2,000만</label>
+          <label><input type="radio" name="budget" value="20-40">2,000만~4,000만</label>
+          <label><input type="radio" name="budget" value="40-70">4,000만~7,000만</label>
+          <label><input type="radio" name="budget" value="70-100">7,000만~1억</label>
+          <label><input type="radio" name="budget" value="100-200">1억~2억</label>
+          <label><input type="radio" name="budget" value="200+">2억 이상</label>
+          <label><input type="radio" name="budget" value="unknown">미정</label>
+        </div>
+      </div>
+
+      <!-- Q8 선호 조건 -->
+      <div class="q-block">
+        <div class="q-title">8. 선호하는 건물 조건 (복수 선택 가능)</div>
+        <div class="options">
+          <label><input type="checkbox" name="pref" value="station">역세권(도보 5분 이내)</label>
+          <label><input type="checkbox" name="pref" value="new">신축(10년 이내)</label>
+          <label><input type="checkbox" name="pref" value="largefloor">대형 플로어(300평 이상)</label>
+          <label><input type="checkbox" name="pref" value="nocore">코어·코너 최소, 효율적 평면</label>
+          <label><input type="checkbox" name="pref" value="highfloor">층고 2.6M 이상</label>
+          <label><input type="checkbox" name="pref" value="parking">주차 여유</label>
+          <label><input type="checkbox" name="pref" value="restroom">화장실 남·녀 분리</label>
+          <label><input type="checkbox" name="pref" value="tenantmix">입주사 수준 높은 건물</label>
+        </div>
+      </div>
+
+      <!-- Q9 이전/확장 목적 -->
+      <div class="q-block">
+        <div class="q-title">9. 이번 이전·확장의 주요 목적</div>
+        <div class="options">
+          <label><input type="radio" name="purpose" value="growth">인력 증가</label>
+          <label><input type="radio" name="purpose" value="cost">임대료 절감</label>
+          <label><input type="radio" name="purpose" value="access">접근성 개선</label>
+          <label><input type="radio" name="purpose" value="image">이미지 업그레이드</label>
+          <label><input type="radio" name="purpose" value="hqmove">본사 이전</label>
+          <label><input type="radio" name="purpose" value="workstyle">근무형태 변화(재택·하이브리드 등)</label>
+          <label><input type="radio" name="purpose" value="etc">기타</label>
+        </div>
+      </div>
+
+      <!-- Q10 기타 요청사항 -->
+      <div class="q-block">
+        <div class="q-title">10. 추가로 전달하고 싶은 요청사항</div>
+        <textarea name="memo" placeholder="예) 특정 역 도보 3분 이내 선호, 향·전망 선호, 주차 00대 이상 필요 등"></textarea>
+      </div>
+
+      <div class="submit-row">
+        <!-- 나중에 실제 전송 로직(이메일/서버) 연결 예정 -->
+        <button type="submit" class="btn-submit">제출하기</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 MatePlusRealty Corporate Advisory. All rights reserved.</span>
+    <span>Corporate Advisory Dep. – Focused on CBD, GBD, YBD, BBD</span>
+  </div>
+</footer>
+
+</body>
+</html>
