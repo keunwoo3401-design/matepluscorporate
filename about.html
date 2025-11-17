@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회사·관계사 소개 – MatePlusRealty Corporate Advisory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MatePlusRealty 및 관계사 GenstarMate 회사 소개 페이지" />
+  <style>
+    :root {
+      --mp-navy-1: #1c2c52;
+      --mp-navy-2: #263863;
+      --mp-navy-3: #314474;
+      --mp-yellow: #f6d349;
+      --mp-bg: #f3f4f7;
+      --mp-radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", system-ui, sans-serif;
+      background: var(--mp-bg);
+      color: #111827;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: var(--mp-navy-1);
+      color: white;
+      padding: 14px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-wrap { display:flex; align-items:center; gap:10px; }
+    .logo-mark {
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: var(--mp-navy-3);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:18px; color:#fff;
+    }
+
+    .logo-text-main { font-size:15px; font-weight:700; }
+    .logo-text-sub { font-size:11px; opacity:0.85; }
+
+    nav { display:flex; gap:14px; font-size:13px; font-weight:500; }
+    nav a {
+      padding:4px 8px;
+      border-radius:999px;
+      color:white;
+    }
+    nav a:hover { background:rgba(255,255,255,0.16); }
+
+    main {
+      max-width: 1100px;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--mp-navy-1);
+    }
+
+    .page-sub {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 20px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--mp-navy-2);
+      border-radius: var(--mp-radius);
+      padding: 22px 22px 20px;
+      color: #e5e7eb;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.25);
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .card-header-label {
+      display:inline-block;
+      font-size:11px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.35);
+      border:1px solid rgba(148,163,184,0.8);
+      margin-bottom:4px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #f9fafb;
+    }
+
+    .card-sub {
+      font-size: 12px;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .card-list {
+      font-size: 12px;
+      line-height: 1.7;
+      margin: 4px 0 0 16px;
+      color: #e5e7eb;
+    }
+
+    .btn-row {
+      margin-top: 14px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+      font-size:11px;
+      opacity:0.9;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 16px;
+      border-radius:999px;
+      border:1px solid rgba(248,250,252,0.7);
+      background:rgba(15,23,42,0.2);
+      color:#f9fafb;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .btn-primary {
+      background:var(--mp-yellow);
+      color:#111827;
+      border-color:var(--mp-yellow);
+    }
+
+    .btn span.chevron { font-size:12px; }
+
+    footer {
+      padding: 14px 16px 18px;
+      font-size: 11px;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 880px) {
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+      main {
+        margin-top: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-mark">M</div>
+      <div>
+        <div class="logo-text-main">MatePlusRealty Corporate Advisory</div>
+        <div class="logo-text-sub">대형 오피스 임대차 · 기업 전담 부동산 컨설팅</div>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">메인</a>
+      <a href="about.html">회사소개</a>
+      <a href="#mateplus">MatePlusRealty</a>
+      <a href="#genstar">GenstarMate</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">회사·관계사 소개</h1>
+  <p class="page-sub">
+    MatePlusRealty Corporate Advisory는 메이트플러스중개법인과 관계사 GenstarMate의 네트워크를 기반으로
+    대형 오피스 임대차 · 투자 · 개발까지 연계한 서비스를 제공합니다. 아래에서 각 법인의 역할과 공식 홈페이지를 확인하실 수 있습니다.
+  </p>
+
+  <div class="grid-two">
+    <!-- 왼쪽: MatePlusRealty -->
+    <section id="mateplus" class="card">
+      <div>
+        <div class="card-header-label">Corporate Advisory · Brokerage</div>
+        <h2 class="card-title">MatePlusRealty 중개법인</h2>
+        <p class="card-sub">
+          MatePlusRealty는 서울 주요 업무권역(CBD · GBD · YBD · BBD)을 중심으로
+          대형 오피스 임대차, 본사 이전·확장, 기업 전담 중개업무를 수행합니다.
+          Corporate Advisory 조직을 통해 임차인·임대인 양측의 전략적 파트너 역할을 지향합니다.
+        </p>
+        <ul class="card-list">
+          <li>600+ 프라임 오피스 빌딩 네트워크</li>
+          <li>대형 임차인(기업·금융·공공기관) 이전·확장 프로젝트</li>
+          <li>임대차 조건 협상, 비교제안, 의사결정 지원</li>
+        </ul>
+      </div>
+      <div class="btn-row">
+        <span>공식 홈페이지에서 조직 · 서비스 · 포트폴리오를 확인하실 수 있습니다.</span>
+        <a href="http://mateplusrealty.co.kr/kr/" target="_blank" rel="noopener" class="btn btn-primary">
+          MatePlusRealty 홈페이지 바로가기 <span class="chevron">›</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 오른쪽: GenstarMate -->
+    <section id="genstar" class="card" style="background: var(--mp-navy-3);">
+      <div>
+        <div class="card-header-label">Asset Management · Development</div>
+        <h2 class="card-title">GenstarMate (젠스타메이트)</h2>
+        <p class="card-sub">
+          GenstarMate는 오피스·상업시설 등 수익형 부동산의 자산운용, 개발·리모델링, 
+          가치 제고 전략을 담당하는 계열사입니다. 중개법인과 연계하여
+          임차인 니즈에 맞는 빌딩 개발·리포지셔닝 전략을 함께 제안할 수 있습니다.
+        </p>
+        <ul class="card-list">
+          <li>오피스·상업시설 개발 및 리모델링</li>
+          <li>자산운용, 공실·임대료 전략, 리포지셔닝</li>
+          <li>빌딩 매입·매각 및 투자 구조 자문</li>
+        </ul>
+      </div>
+      <div class="btn-row">
+        <span>GenstarMate의 프로젝트 및 자산운용 사례는 공식 홈페이지에서 확인하실 수 있습니다.</span>
+        <a href="http://genstarmate.com/" target="_blank" rel="noopener" class="btn btn-primary">
+          GenstarMate 홈페이지 바로가기 <span class="chevron">›</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2025 MatePlusRealty Corporate Advisory. All rights reserved.</span>
+    <span>Corporate Advisory Dep. – Focused on CBD, GBD, YBD, BBD</span>
+  </div>
+</footer>
+
+</body>
+</html>
