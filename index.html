@@ -5,19 +5,20 @@
   <title>MatePlusRealty Corporate Advisory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="MatePlusRealty Corporate - 대형 오피스 임대차, 기업 전담 부동산 컨설팅" />
-
   <style>
     :root {
-      --mp-blue-1: #1c2c52;
-      --mp-blue-2: #243663;
-      --mp-blue-3: #2e4474;
-      --mp-blue-4: #395285;
+      --mp-navy-1: #1c2c52;
+      --mp-navy-2: #263863;
+      --mp-navy-3: #314474;
+      --mp-navy-4: #3c5185;
       --mp-yellow: #f6d349;
       --mp-bg: #f3f4f7;
       --mp-radius: 18px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -26,12 +27,24 @@
       color: #111827;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     /* 헤더 */
+
     header {
-      background: var(--mp-blue-1);
+      background: var(--mp-navy-1);
       color: white;
       padding: 14px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
       position: sticky;
       top: 0;
       z-index: 20;
@@ -46,29 +59,58 @@
       gap: 16px;
     }
 
-    .logo-wrap { display: flex; align-items: center; gap: 10px; }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .logo-mark {
-      width: 34px; height: 34px;
+      width: 34px;
+      height: 34px;
       border-radius: 12px;
-      background: var(--mp-blue-3);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 18px; color:white;
+      background: var(--mp-navy-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: #fff;
     }
 
-    .logo-text-main { font-size: 15px; font-weight: 700; }
-    .logo-text-sub { font-size: 11px; opacity: 0.85; }
+    .logo-text-main {
+      font-size: 15px;
+      font-weight: 700;
+    }
 
-    nav { display: flex; gap: 14px; font-size: 13px; font-weight: 500; }
+    .logo-text-sub {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
     nav a {
-      padding: 4px 8px; color:white; border-radius: 999px; 
-      text-decoration:none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
     }
-    nav a:hover { background: rgba(255,255,255,0.16); }
 
-    /* 4분할 그리드 */
+    nav a:hover {
+      background: rgba(248, 250, 252, 0.16);
+    }
+
+    /* 메인 컨테이너 */
+
     main {
       flex: 1;
       display: flex;
+      align-items: stretch;
       justify-content: center;
       padding: 24px 16px 32px;
     }
@@ -76,158 +118,340 @@
     .grid-wrap {
       width: 100%;
       max-width: 1100px;
+      max-height: 720px;
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      grid-template-columns: repeat(2,1fr);
-      grid-template-rows: repeat(2,1fr);
     }
 
     .panel {
-      background: var(--mp-blue-1);
+      position: relative;
       border-radius: var(--mp-radius);
-      padding: 20px;
+      padding: 20px 20px 18px;
       color: white;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+      /* 👉 그라데이션 대신 단색 */
+      background: var(--mp-navy-1);
     }
 
-    /* 색상 */
-    .panel-about { background: var(--mp-blue-1); }
-    .panel-rent  { background: var(--mp-blue-2); }
-    .panel-news  { background: var(--mp-blue-3); }
-    .panel-admin { background: var(--mp-blue-4); }
+    /* 👉 패널별 다른 파란색 (단색) */
+    .panel-about { background: var(--mp-navy-1); }
+    .panel-rent  { background: var(--mp-navy-2); }
+    .panel-news  { background: var(--mp-navy-3); }
+    .panel-admin { background: var(--mp-navy-4); }
+
+    /* 👉 그라데이션/하이라이트 제거: ::before 없앰 */
+    .panel::before { content: none; }
+
+    .panel-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .panel-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .panel-sub {
+      font-size: 13px;
+      opacity: 0.9;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
 
     .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
       font-size: 11px;
-      display:inline-block;
-      background: rgba(255,255,255,0.15);
-      padding:3px 10px;
-      border-radius:999px;
-      margin-bottom:8px;
+      background: rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      margin-bottom: 8px;
     }
 
-    .panel-title { font-size: 18px; font-weight:700; margin-bottom:8px; }
-    .panel-sub { font-size:13px; opacity:0.9; line-height:1.6; margin-bottom:16px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: rgba(15, 23, 42, 0.2);
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--mp-yellow);
+    }
+
+    .panel-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      opacity: 0.92;
+    }
+
+    .panel-footer strong {
+      font-size: 12px;
+    }
 
     .btn {
-      display:inline-flex;
-      align-items:center;
-      padding:7px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.6);
-      background:rgba(0,0,0,0.1);
-      color:white;
-      font-size:12px;
-      font-weight:600;
-      cursor:pointer;
-      text-decoration:none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.7);
+      background: rgba(15, 23, 42, 0.2);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn:hover {
+      background: rgba(15, 23, 42, 0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.4);
     }
 
     .btn-primary {
-      background:var(--mp-yellow);
-      color:#111827;
-      border-color:var(--mp-yellow);
+      background: var(--mp-yellow);
+      color: #111827;
+      border-color: var(--mp-yellow);
     }
+
+    .btn-primary:hover {
+      background: #f4cc30;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.5);
+    }
+
+    .btn span.chevron {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    /* 푸터 */
 
     footer {
-      padding:20px;
-      color:#6b7280;
-      font-size:11px;
-      text-align:center;
+      padding: 14px 16px 18px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* 반응형 */
+
+    @media (max-width: 880px) {
+      .grid-wrap {
+        max-height: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+      }
+
+      main {
+        padding: 18px 12px 24px;
+      }
+
+      header {
+        padding: 10px 14px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .panel {
+        min-height: 180px;
+      }
     }
   </style>
-
 </head>
-
 <body>
-<header>
-  <div class="header-inner">
-    <div class="logo-wrap">
-      <div class="logo-mark">M</div>
-      <div>
-        <div class="logo-text-main">MatePlusRealty Corporate Advisory</div>
-        <div class="logo-text-sub">대형 오피스 임대차 · 기업 전담 부동산 컨설팅</div>
+<div class="page">
+
+  <!-- 헤더 -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-mark">M</div>
+        <div>
+          <div class="logo-text-main">MatePlusRealty Corporate Advisory</div>
+          <div class="logo-text-sub">대형 오피스 임대차 · 기업 전담 부동산 컨설팅</div>
+        </div>
       </div>
+      <nav>
+        <a href="#about">회사소개</a>
+        <a href="#rent">임대현황</a>
+        <a href="#news">뉴스</a>
+        <a href="#contact">문의/제안</a>
+      </nav>
     </div>
+  </header>
 
-    <nav>
-      <a href="#about">회사소개</a>
-      <a href="#rent">임대현황</a>
-      <a href="#news">뉴스</a>
-      <a href="#contact">문의/제안</a>
-    </nav>
-  </div>
-</header>
+  <!-- 메인 4분할 -->
+  <main>
+    <div class="grid-wrap">
 
-<main>
-  <div class="grid-wrap">
-
-    <!-- 회사소개/관계사 -->
-    <section id="about" class="panel panel-about">
-      <div>
-        <div class="badge">MatePlusRealty · GenstarMate</div>
-        <div class="panel-title">회사소개 · 관계사 소개</div>
-        <div class="panel-sub">
-          MatePlusRealty Corporate Advisory는  
-          600+ 프라임 오피스 네트워크 기반의 기업 전담 부동산 조직입니다.<br>
-          GenstarMate 및 계열사와 협력하여  
-          임대차 · PM · 투자까지 원스톱 솔루션을 제공합니다.
+      <!-- 좌상단: 회사소개 / 관계사 소개 -->
+      <section id="about" class="panel panel-about">
+        <div class="panel-inner">
+          <div>
+            <div class="badge">MatePlusRealty · GenstarMate</div>
+            <h2 class="panel-title">회사소개 · 관계사 소개</h2>
+            <p class="panel-sub">
+              MatePlusRealty Corporate Advisory는 메이트플러스중개법인 내 기업 전담 조직으로,
+              600+ 프라임 오피스 네트워크를 기반으로 대형 임대차와 본사 이전을 설계합니다.
+              GenstarMate, 관계 계열사와의 협업을 통해 투자 · 개발 · PM까지 원스톱 솔루션을 제공합니다.
+            </p>
+            <div>
+              <span class="pill"><span class="pill-dot"></span>대형 오피스 임대차</span>
+              <span class="pill"><span class="pill-dot"></span>본사 이전/확장 컨설팅</span>
+              <span class="pill"><span class="pill-dot"></span>GenstarMate · 계열사 네트워크</span>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <span><strong>Corporate HQ Focus</strong> · CBD · 강남 · 여의도</span>
+            <!-- 회사소개/관계사 상세 페이지로 연결하고 싶으면 href 수정 -->
+            <a href="#" class="btn">
+              회사·관계사 상세보기 <span class="chevron">›</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <a href="#" class="btn">회사·관계사 상세보기 ›</a>
-    </section>
+      </section>
 
-    <!-- 임대현황 -->
-    <section id="rent" class="panel panel-rent">
-      <div>
-        <div class="badge">Prime Office Leasing</div>
-        <div class="panel-title">주요 건물 임대현황</div>
-        <div class="panel-sub">
-          CBD · 강남 · 여의도 주요 대형 플로어  
-          본사 이전 수요에 맞춘 매물만 선별하여 제공합니다.
+      <!-- 우상단: 주요 건물 임대현황 -->
+      <section id="rent" class="panel panel-rent">
+        <div class="panel-inner">
+          <div>
+            <div class="badge">Prime Office Leasing</div>
+            <h2 class="panel-title">주요 건물 임대현황</h2>
+            <p class="panel-sub">
+              서울 CBD · 강남 · 여의도 핵심 구역에서 진행 중인 주요 건물 임대현황입니다.
+              전용 500평 이상 대형 플로어, 본사 이전·스윙스페이스 등 기업 수요에 맞는 매물을 선별해 제안드립니다.
+            </p>
+            <ul style="font-size:12px; line-height:1.6; margin:0 0 10px 14px; padding:0;">
+              <li>CBD 프라임타워 전층 단독 임대 (2,000~3,000평)</li>
+              <li>강남권 IT 클러스터 신축급 오피스 (800~1,200평)</li>
+              <li>여의도 금융특화 빌딩 코어 플로어 (1,000평 내외)</li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <span><strong>실제 임대현황</strong> · 업데이트 수시 반영</span>
+            <!-- 추후 상세 임대현황 페이지로 연결 -->
+            <a href="#" class="btn btn-primary">
+              상세 임대현황 보기 <span class="chevron">›</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <a href="#" class="btn btn-primary">상세 임대현황 보기 ›</a>
-    </section>
+      </section>
 
-    <!-- 뉴스 블로그 연동 -->
-    <section id="news" class="panel panel-news">
-      <div>
-        <div class="badge">News · Insight</div>
-        <div class="panel-title">뉴스 · 리포트</div>
-        <div class="panel-sub">
-          시장 분석 · 임차인 이동 · 정책 변화 등  
-          최신 인사이트는 블로그에서 확인 가능합니다.
+      <!-- 좌하단: 뉴스 (블로그 연동) -->
+      <section id="news" class="panel panel-news">
+        <div class="panel-inner">
+          <div>
+            <div class="badge">News · Insight</div>
+            <h2 class="panel-title">뉴스 · 리포트 (블로그 연동)</h2>
+            <p class="panel-sub">
+              오피스 시장 동향, 대형 임차인 이동, 금리·정책 변화에 따른 임대차 전략 등
+              실제 영업 현장에서 얻은 인사이트를 블로그 형태로 정리합니다.
+              아래 버튼을 클릭하면 이사님의 블로그로 이동합니다.
+            </p>
+            <p style="font-size:12px; opacity:0.9; margin:0;">
+              ※ 뉴스 카드는 홈페이지에서 요약만 보여주고, 본문은 블로그(네이버/티스토리 등)에 게시하시면 됩니다.
+            </p>
+          </div>
+          <div class="panel-footer">
+            <span><strong>최근 1주일 내 업데이트</strong> 위주로 소개</span>
+            <!-- 🔴 여기 블로그 주소로 변경하세요 -->
+            <a href="https://blog.naver.com/여기에_이사님_블로그ID" target="_blank" class="btn btn-primary" rel="noopener">
+              블로그 뉴스 바로가기 <span class="chevron">›</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <a href="https://blog.naver.com/이사님블로그ID" target="_blank" class="btn btn-primary">블로그 뉴스 바로가기 ›</a>
-    </section>
+      </section>
 
-    <!-- 관리자 인사 · 문의 -->
-    <section id="contact" class="panel panel-admin">
-      <div>
-        <div class="badge">Director · Contact</div>
-        <div class="panel-title">관리자 인사 · 문의/제안</div>
-        <div class="panel-sub">
-          안녕하세요, MatePlusRealty Corporate Advisory  
-          김근우 이사입니다.<br>
-          본사 이전·임대차 전략이 필요하시면 연락주세요.
+      <!-- 우하단: 관리자 인사 / 문의·제안하기 -->
+      <section id="contact" class="panel panel-admin">
+        <div class="panel-inner">
+          <div>
+            <div class="badge">Director Message · Contact</div>
+            <h2 class="panel-title">관리자 인사 · 문의 / 제안하기</h2>
+            <p class="panel-sub">
+              안녕하세요, MatePlusRealty Corporate Advisory 김근우 이사입니다.
+              본사 이전·임차 전략, 중장기 사업계획에 맞는 오피스 솔루션이 필요하시다면
+              아래 연락처 또는 문의/제안 버튼을 통해 편하게 연락 주십시오.
+            </p>
+            <div style="font-size:12px; line-height:1.6; margin-bottom:10px;">
+              <div><strong>Tel.</strong> 010-3401-9701</div>
+              <div><strong>Email.</strong> kw@mateplusrealty.co.kr</div>
+              <div><strong>Office.</strong> 서울 중구 (메이트플러스중개법인)</div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <span><strong>1:1 비공개 상담</strong> · 기업 전담 대응</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <!-- 메일 바로쓰기 -->
+              <a href="mailto:kw@mateplusrealty.co.kr?subject=[MatePlusRealty%20Corporate]%20임대차%20문의" class="btn">
+                이메일로 문의하기
+              </a>
+              <!-- 🔴 나중에 Formspree 같은 폼 URL로 변경 가능 -->
+              <a href="#" class="btn btn-primary">
+                온라인 제안/문의 폼 <span class="chevron">›</span>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <a href="mailto:kw@mateplusrealty.co.kr" class="btn">이메일 문의</a>
-        <a href="#" class="btn btn-primary">온라인 제안하기 ›</a>
-      </div>
-    </section>
+      </section>
 
-  </div>
-</main>
+    </div>
+  </main>
 
-<footer>
-  © 2025 MatePlusRealty Corporate Advisory · GenstarMate
-</footer>
+  <!-- 푸터 -->
+  <footer>
+    <div class="footer-inner">
+      <span>© 2025 MatePlusRealty Corporate Advisory. All rights reserved.</span>
+      <span>대형 오피스 임대차 · 기업 전담 부동산 컨설팅 · CBD · 강남 · 여의도</span>
+    </div>
+  </footer>
 
+</div>
 </body>
 </html>
